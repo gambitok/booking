@@ -7,8 +7,11 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <li class="nav-item {{Request::is('/') ? 'active' : ''}}"><a class="nav-link" href="/">Home</a></li>
-                <li class="nav-item {{Request::is('contact') ? 'active' : ''}}"><a class="nav-link" href="/contacts">Contacts</a></li>
-                <li class="nav-item {{Request::is('products') ? 'active' : ''}}"><a class="nav-link" href="/products">Products</a></li>
+                <li class="nav-item {{Request::is('flights') ? 'active' : ''}}"><a class="nav-link" href="/flights">Flights</a></li>
+                @guest
+                @else
+                    <li class="nav-item {{Request::is('tickets') ? 'active' : ''}}"><a class="nav-link" href="/tickets">Tickets</a></li>
+                @endguest
             </div>
             <ul class="navbar-nav ml-auto">
                 @guest

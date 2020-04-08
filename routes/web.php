@@ -21,10 +21,16 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+Route::get('/flights', 'FlightsController@index')->name('flights');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/tickets', 'TicketsController@index')->name('tickets');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//
+//Auth::routes();
+//
+//Route::get('/home', 'HomeController@index')->name('home');
+//
+//Auth::routes();
+//
+//Route::get('/home', 'HomeController@index')->name('home');
