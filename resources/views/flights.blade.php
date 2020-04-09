@@ -33,6 +33,21 @@
             </div>
         </div>
     </div>
+
+    <div class="flights_list">
+        <div class="container">
+            @foreach ($flights as $flight)
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{$flight->name}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{$flight->airline}}</h6>
+                        <p class="card-text">{{$flight->price}} $</p>
+                        <a href="f/{{$flight->flight_id}}" class="btn btn-outline-primary">More..</a>
+                        <a href="#" class="btn btn-primary">Reserv</a>
+                    </div>
+            @endforeach
+        </div>
+    </div>
 </div>
 
 @endsection

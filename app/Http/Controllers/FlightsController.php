@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Flight;
 use Illuminate\Http\Request;
 
 class FlightsController extends Controller
@@ -13,6 +14,13 @@ class FlightsController extends Controller
      */
     public function index()
     {
-        return view('flights');
+        $flights=Flight::all();
+        return view('flights', compact('flights'));
+    }
+
+    public function show($code=null)
+    {
+        $flights = Flight::where('flight_id', $code)->first();
+        return view('flights_card', compact('flights'));
     }
 }
