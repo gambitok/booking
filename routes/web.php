@@ -26,3 +26,5 @@ Route::get('/f/{flight_id?}', 'FlightsController@show');
 
 Route::get('/tickets', 'TicketsController@index');
 
+Route::get('/payment', 'TicketsController@payment');
+

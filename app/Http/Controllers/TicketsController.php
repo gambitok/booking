@@ -15,4 +15,8 @@ class TicketsController extends Controller
     {
         return view('tickets');
     }
+
+    public function payment() {
+        return view('payment');
+    }
 }

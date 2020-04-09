@@ -11,30 +11,23 @@
             <hr>
             <div class="row">
                 <div class="col-3">
-                    <label for="city_from">City from</label>
-                    <select class="form-control" name="city_from" id="city_from">
+                    <select class="form-control" name="city_from" id="city_from" placeholder="City from">
                         <option value="0">Not selected</option>
                     </select>
                 </div>
                 <div class="col-3">
-                    <label for="city_to">City to</label>
-                    <select class="form-control" name="city_to" id="city_to">
+                    <select class="form-control" name="city_to" id="city_to" placeholder="City to">
                         <option value="0">Not selected</option>
                     </select>
                 </div>
-                <div class="col-3">
-                    <label for="date_from">Date from</label>
-                    <input class="form-control" type="datetime-local" name="date_from" id="date_from">
+                <div class="col-2">
+                    <input class="form-control" type="datetime-local" name="date_from" id="date_from" placeholder="Date from">
                 </div>
-                <div class="col-3">
-                    <label for="date_to">Date to</label>
-                    <input class="form-control" type="datetime-local" name="date_to" id="date_to">
+                <div class="col-2">
+                    <input class="form-control" type="datetime-local" name="date_to" id="date_to" placeholder="Date to">
                 </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="offset-4 col-4">
-                    <button class="btn btn-primary">Search</button>
+                <div class="col-2">
+                    <button class="btn btn-primary w-100">Search</button>
                 </div>
             </div>
         </div>
