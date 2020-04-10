@@ -48,6 +48,7 @@
         </div>
         <button class="subscribe btn btn-primary btn-block" type="button"> Pay NOW (100$) </button>
     </form>
+
 </div>
 
 @endsection

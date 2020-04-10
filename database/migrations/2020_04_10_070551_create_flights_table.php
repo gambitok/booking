@@ -20,8 +20,10 @@ class CreateFlightsTable extends Migration
             $table->dateTime('date_from', 0);
             $table->dateTime('date_to', 0);
             $table->double('price', 8, 2);
-            $table->integer('city_id_from');
-            $table->integer('city_id_to');
+            $table->integer('city_id_from')->unsigned();
+            $table->foreign('city_id_from')->references('city_id')->on('cities');
+            $table->integer('city_id_to')->unsigned();
+            $table->foreign('city_id_to')->references('city_id')->on('cities');
             $table->timestamps();
         });
     }

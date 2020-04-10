@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Ticket;
 use Illuminate\Http\Request;
 
 class TicketsController extends Controller
@@ -13,10 +14,12 @@ class TicketsController extends Controller
      */
     public function index()
     {
-        return view('tickets');
+        $tickets=Ticket::all();
+        return view('tickets', compact('tickets'));
     }
 
-    public function payment() {
+    public function payment()
+    {
         return view('payment');
     }
 }

@@ -44,11 +44,12 @@
                         <p class="card-text">{{$flight->price}} $</p>
                         <p class="card-text"><small class="text-muted">Date: {{$flight->date_from}} - {{$flight->date_to}}</small></p>
                         <a href="f/{{$flight->flight_id}}" class="btn btn-outline-primary">More..</a>
-                        <a href="#" class="btn btn-primary">Reserv</a>
                     </div>
+                </div>
             @endforeach
         </div>
     </div>
+
 </div>
 
 @endsection
