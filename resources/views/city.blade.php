@@ -1,0 +1,1 @@
+<span>{{$city->city_name}}</span>

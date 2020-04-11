@@ -8,16 +8,12 @@ use Illuminate\Http\Request;
 
 class FlightsController extends Controller
 {
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
-        $flights=Flight::all();
+         $flights=Flight::all();
+         $cities=City::all();
 //        $flights = Flight::with('city')->get();
-        return view('flights', compact('flights'));
+        return view('flights', compact('flights'), compact('cities'));
     }
 
     public function show($code=null)

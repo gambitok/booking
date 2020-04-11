@@ -13,11 +13,17 @@
                 <div class="col-3">
                     <select class="form-control" name="city_from" id="city_from" placeholder="City from">
                         <option value="0">Not selected</option>
+                        @foreach ($cities as $city)
+                            <option value="{{$city->city_id}}">{{$city->city_name}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="col-3">
                     <select class="form-control" name="city_to" id="city_to" placeholder="City to">
                         <option value="0">Not selected</option>
+                        @foreach ($cities as $city)
+                            <option value="{{$city->city_id}}">{{$city->city_name}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="col-2">
@@ -38,11 +44,11 @@
             @foreach ($flights as $flight)
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">{{$flight->city_id_from}} - {{$flight->city_id_to}}</h4>
+                        <h4 class="card-title">{{$flight->getCity($flight->city_id_from)}} - {{$flight->getCity($flight->city_id_to)}}</h4>
                         <h5 class="card-title">{{$flight->name}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{$flight->airline}}</h6>
-                        <p class="card-text">{{$flight->price}} $</p>
                         <p class="card-text"><small class="text-muted">Date: {{$flight->date_from}} - {{$flight->date_to}}</small></p>
+                        <p class="card-text">{{$flight->price}}$</p>
                         <a href="f/{{$flight->flight_id}}" class="btn btn-outline-primary">More..</a>
                     </div>
                 </div>
