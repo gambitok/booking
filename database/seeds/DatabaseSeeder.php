@@ -96,21 +96,12 @@ class DatabaseSeeder extends Seeder
             )
         );
 
+        for($i=1;$i<=24;$i++) {
+            $mas[$i] = ['flight_id' => 1, 'seat_number' => $i, 'user_id' => 0, 'booked_status' => 0];
+        }
+
         DB::table('seats')->insert(
-            array(
-                ['flight_id' => 1, 'seat_number' => 1, 'user_id' => 1, 'booked_status' => 1],
-                ['flight_id' => 1, 'seat_number' => 2, 'user_id' => 1, 'booked_status' => 1],
-                ['flight_id' => 1, 'seat_number' => 3, 'user_id' => 0, 'booked_status' => 0],
-                ['flight_id' => 1, 'seat_number' => 4, 'user_id' => 1, 'booked_status' => 1],
-                ['flight_id' => 1, 'seat_number' => 5, 'user_id' => 1, 'booked_status' => 1],
-                ['flight_id' => 1, 'seat_number' => 6, 'user_id' => 0, 'booked_status' => 0],
-                ['flight_id' => 1, 'seat_number' => 7, 'user_id' => 0, 'booked_status' => 0],
-                ['flight_id' => 1, 'seat_number' => 8, 'user_id' => 0, 'booked_status' => 0],
-                ['flight_id' => 2, 'seat_number' => 1, 'user_id' => 1, 'booked_status' => 1],
-                ['flight_id' => 2, 'seat_number' => 2, 'user_id' => 0, 'booked_status' => 0],
-                ['flight_id' => 2, 'seat_number' => 3, 'user_id' => 0, 'booked_status' => 0],
-                ['flight_id' => 2, 'seat_number' => 4, 'user_id' => 0, 'booked_status' => 0],
-            )
+            $mas
         );
 
         DB::table('tickets')->insert(

@@ -13926,3 +13926,42 @@ a.text-dark:focus {
   }
 }
 
+.card {
+  margin-bottom: 1em;
+}
+
+.form_seats {
+  background: antiquewhite;
+  padding: 1em;
+  margin: 0 400px;
+}
+
+.form_seats input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.form_seats label {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  margin: 5px;
+  background: #3a78c3;
+  border-radius: 0.25em;
+  color: white !important;
+  cursor: pointer;
+}
+
+.form_seats input:checked + label {
+  background: lightcoral;
+}
+
+.form_seats input:disabled + label {
+  background: #ccc;
+  color: #6c757d !important;
+  cursor: not-allowed;
+}
+

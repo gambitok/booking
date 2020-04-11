@@ -20,6 +20,27 @@ class TicketsController extends Controller
         return view('tickets', compact('tickets'));
     }
 
+    public function store(Request $request)
+    {
+        $request->validate([
+            'username'      => ['required', 'max:255'],
+            'cardNumber'    => ['required', 'max:8'],
+            'mmExpiration'  => ['required', 'max:2'],
+            'yyExpiration'  => ['required', 'max:2'],
+            'cvvCode'       => ['required', 'max:3']
+        ]);
+
+        $ticket = new Ticket;
+        $ticket->flight_id  = $request->input('flight_id');
+        $ticket->user_id    = $request->input('user_id');
+        $ticket->summary    = $request->input('summary');
+        // SEATS
+
+        $ticket->save();
+
+        return redirect('tickets')->with('message','Successfully booking!');
+    }
+
     public function payment()
     {
         return view('payment');

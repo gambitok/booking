@@ -40,20 +40,18 @@
     </div>
 
     <div id="flights_list" class="flights_list">
-        <div class="container">
-            @foreach ($flights as $flight)
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">{{$flight->getCity($flight->city_id_from)}} - {{$flight->getCity($flight->city_id_to)}}</h4>
-                        <h5 class="card-title">{{$flight->name}}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">{{$flight->airline}}</h6>
-                        <p class="card-text"><small class="text-muted">Date: {{$flight->date_from}} - {{$flight->date_to}}</small></p>
-                        <p class="card-text">{{$flight->price}}$</p>
-                        <a href="f/{{$flight->flight_id}}" class="btn btn-outline-primary">More..</a>
-                    </div>
+        @foreach ($flights as $flight)
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">{{$flight->getCity($flight->city_id_from)}} - {{$flight->getCity($flight->city_id_to)}}</h4>
+                    <h5 class="card-title">{{$flight->name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{$flight->airline}}</h6>
+                    <p class="card-text"><small class="text-muted">Date: {{$flight->date_from}} - {{$flight->date_to}}</small></p>
+                    <p class="card-text">{{$flight->price}}$</p>
+                    <a href="f/{{$flight->flight_id}}" class="btn btn-outline-primary">More..</a>
                 </div>
-            @endforeach
-        </div>
+            </div>
+        @endforeach
     </div>
 
 </div>
