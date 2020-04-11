@@ -17,13 +17,12 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Ticket # {{$ticket->ticket_id}}</h4>
-                        <h5 class="card-title">{{$ticket->flight_id}}</h5>
-                        <p class="card-text">Summary: {{$ticket->summary}} $</p>
-                        <p class="card-text">Seats: <i class="fa fa-ticket"></i> {{$ticket->seats}}</p>
-                        <a href="/f/{{$ticket->flight_id}}" class="btn btn-info">Info</a>
-                        <a href="#" class="btn btn-danger">Cancel</a>
-                        <p class="text-muted text-right">Purchased by: {{$ticket->getUser($ticket->ticket_id)}}</p>
-                        <p class="text-muted text-right">Date: {{$ticket->created_at}}</p>
+                        <p class="card-text">{{$ticket->getTicketFlight($ticket->flight_id)}}</p>
+                        <p class="card-text text-right"><b>Seats:</b> {{$ticket->getTicketSeat($ticket->flight_id)}}</p>
+                        <p class="card-text text-right"><b>Summary:</b> {{$ticket->summary}} $</p>
+                        <p class="text-muted text-right"><b>Purchased by:</b> {{$ticket->getTicketUser()}}</p>
+{{--                        <p class="text-muted text-right"><b>Date:</b> {{$ticket->created_at}}</p>--}}
+                        <a href="#" class="btn btn-danger text-right">Cancel</a>
                     </div>
                 </div>
             @endforeach

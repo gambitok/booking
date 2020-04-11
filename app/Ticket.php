@@ -6,10 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ticket extends Model
 {
-    //
-    public function getUser($code)
+    public function getTicketUser()
     {
-        $user = User::where('id', $code)->first();
+        $user = auth()->user()->id;
+        $user = User::where('id', $user)->first();
         return view('user', compact('user'));
+    }
+
+    public function getTicketFlight($code) {
+        $flights = Flight::where('flight_id', $code)->first();
+        return view('flights_min_card', compact('flights'));
+    }
+
+    public function getTicketSeat($code) {
+        $user = auth()->user()->id;
+        $seats = Seat::where([
+            ['flight_id', '=', $code],
+            ['booked_status', '=', 1],
+            ['user_id', '=', $user]
+        ])->get();
+        return view('seats', compact('seats'));
     }
 }

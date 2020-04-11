@@ -17,7 +17,10 @@
 
                         <p class="card-text">{{$flights->price}} $</p>
                         <div class="form-check">
-                            {{$flights->getSeats($flights->flight_id)}}
+                            @foreach ($seats as $seat)
+                                <input class="form-check-input" type="checkbox" value="{{$seat->seat_id}}" id="defaultCheck{{$seat->seat_id}}" {{$seat->booked_status==0 ?: 'disabled'}}>
+                                <label class="form-check-label" for="defaultCheck{{$seat->seat_id}}">Seat #{{$seat->seat_number}}</label><br>
+                            @endforeach
                         </div>
 
                         {{--<a href="#" onclick="showPaymentForm();" class="btn btn-primary">Reserv</a>--}}
