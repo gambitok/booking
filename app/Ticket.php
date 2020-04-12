@@ -14,8 +14,8 @@ class Ticket extends Model
     }
 
     public function getTicketFlight($code) {
-        $flights = Flight::where('flight_id', $code)->first();
-        return view('flights_min_card', compact('flights'));
+        $flights = Flight::where('id', $code)->first();
+        return view('flights.min', compact('flights'));
     }
 
     public function getTicketSeat($code) {

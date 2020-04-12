@@ -17,7 +17,11 @@ class TicketsController extends Controller
         //$tickets=Ticket::all();
         $user = auth()->user()->id;
         $tickets = Ticket::where('user_id', $user)->get();
-        return view('tickets', compact('tickets'));
+        return view('tickets.index', compact('tickets'));
+    }
+
+    public function show(Ticket $ticket) {
+        return view('tickets.show', compact('ticket'));
     }
 
     public function store(Request $request)
@@ -39,10 +43,5 @@ class TicketsController extends Controller
         $ticket->save();
 
         return redirect('tickets')->with('message','Successfully booking!');
-    }
-
-    public function payment()
-    {
-        return view('payment');
     }
 }

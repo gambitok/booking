@@ -14,9 +14,9 @@ class CreateSeatsTable extends Migration
     public function up()
     {
         Schema::create('seats', function (Blueprint $table) {
-            $table->increments('seat_id');
+            $table->increments('id');
             $table->integer('flight_id')->unsigned();
-            $table->foreign('flight_id')->references('flight_id')->on('flights');
+            $table->foreign('flight_id')->references('id')->on('flights');
             $table->integer('seat_number');
             $table->bigInteger('user_id')->default(0);
             $table->tinyInteger('type_id')->default(0);

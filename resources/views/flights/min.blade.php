@@ -4,6 +4,6 @@
         <h5 class="card-title">{{$flights->name}}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{$flights->airline}}</h6>
         <p class="card-text"><small class="text-muted">Date: {{$flights->date_from}} - {{$flights->date_to}}</small></p>
-        <a href="f/{{$flights->flight_id}}" class="btn btn-outline-primary">More..</a>
+        <a href="/flights/{{$flights->id}}" class="btn btn-outline-primary">More..</a>
     </div>
 </div>

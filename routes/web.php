@@ -20,11 +20,10 @@ Route::get('/home', 'HomeController@index');
 
 Auth::routes();
 
-Route::get('/flights', 'FlightsController@index');
+Route::resource('flights', 'FlightsController');
 
-Route::get('/f/{flight_id?}', 'FlightsController@show');
+Route::post('flights/filter', 'FlightsController@filter')->name('filter');
 
-Route::get('/tickets', 'TicketsController@index');
+Route::resource('tickets', 'TicketsController');
 
-Route::get('/payment', 'TicketsController@payment');
 
