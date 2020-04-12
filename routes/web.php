@@ -25,10 +25,11 @@ Route::resource('flights', 'FlightsController');
 Route::post('flights/filter', 'FlightsController@filter')->name('filter');
 
 Route::post('tickets', 'TicketsController@store')->name('tickets.store');
-Route::post('tickets/{ticket}', 'TicketsController@destroy')->name('tickets.destroy');
 
-Route::get('search', 'TicketsController@search');
-Route::post('search/{barcode}', 'TicketsController@searchPost')->name('search');
+Route::post('tickets/{ticket}', 'TicketsController@destroy')->name('destroy');
+
+//Route::get('search', 'TicketsController@search');
+//Route::post('search/{barcode}', 'TicketsController@searchPost')->name('search');
 
 Route::resource('tickets', 'TicketsController');
 

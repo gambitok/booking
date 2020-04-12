@@ -58,23 +58,24 @@ class TicketsController extends Controller
         if (isset($ticket->barcode)) return true; else return false;
     }
 
-    public function destroy(Ticket $ticket) {
-        $ticket->destroy($ticket->id);
-        return $this->index()->with('message','Successfully canceled!');
+    public function destroy($id) {
+        $ticket=new Ticket;
+        $ticket->destroy($id);
+        return redirect('tickets')->withErrors('Ticket #'.$id.' canceled!');
     }
 
-    public function search() {
-
-        return view('tickets.search');
-    }
-
-    public function searchPost($id)
-    {
-        $ticket = Ticket::where('barcode', $id)->first();
-
-        if (isset($ticket->barcode))
-            return view('tickets.search')->with('message', 'YEP!');
-        else
-            return view('tickets.search')->with('message', 'NOPE!');
-    }
+//    public function search() {
+//
+//        return view('tickets.search');
+//    }
+//
+//    public function searchPost($id)
+//    {
+//        $ticket = Ticket::where('barcode', $id)->first();
+//
+//        if (isset($ticket->barcode))
+//            return view('tickets.search')->with('message', 'YEP!');
+//        else
+//            return view('tickets.search')->with('message', 'NOPE!');
+//    }
 }
