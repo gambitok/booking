@@ -16,14 +16,15 @@
             </div>
         @endif
 
-        <div class="jumbotron text-center">
+        <div class="flight__banner jumbotron text-center">
             <div class="container">
                 <h1>Flights</h1>
-                <hr>
+                <div class="flight__banner__form">
                 <form method="post" action="{{ route('filter') }}">
                     @csrf
                     <div class="row">
-                        <div class="col-2">
+                        <div class="col-lg-2 col-12">
+                            <label for="city_id_from">City from</label>
                             <select class="form-control" name="city_id_from" id="city_id_from" placeholder="City from">
                                 <option value="0">Not selected</option>
                                 @foreach ($cities as $city)
@@ -31,7 +32,8 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-2">
+                        <div class="col-lg-2 col-12">
+                            <label for="city_id_to">City to</label>
                             <select class="form-control" name="city_id_to" id="city_id_to" placeholder="City to">
                                 <option value="0">Not selected</option>
                                 @foreach ($cities as $city)
@@ -39,18 +41,21 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-3">
+                        <div class="col-lg-3 col-12">
+                            <label for="date_from">Date from</label>
                             <input class="form-control" type="datetime-local" data-format="dd/MM/yyyy hh:mm:ss" name="date_from" id="date_from" placeholder="Date from">
                         </div>
-                        <div class="col-3">
+                        <div class="col-lg-3 col-12">
+                            <label for="date_to">Date to</label>
                             <input class="form-control" type="datetime-local" data-format="dd/MM/yyyy hh:mm:ss" name="date_to" id="date_to" placeholder="Date to">
                         </div>
-                        <div class="col-2">
-                            {{--<button class="btn btn-primary w-100">Search</button>--}}
-                            <input type="submit" class="btn btn-primary w-100">
+                        <div class="col-lg-2 col-12">
+                            <label for="date_to">&nbsp;</label>
+                            <input type="submit" class="btn btn-primary w-100" value="Search">
                         </div>
                     </div>
                 </form>
+                </div>
             </div>
         </div>
 
@@ -59,7 +64,7 @@
             @foreach ($flights as $flight)
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">{{$flight->getCity($flight->city_id_from)}} - {{$flight->getCity($flight->city_id_to)}}</h4>
+                        <h4 class="card-title"><i class="fa fa-plane"></i> {{$flight->getCity($flight->city_id_from)}} - {{$flight->getCity($flight->city_id_to)}}</h4>
                         <h5 class="card-title">{{$flight->name}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{$flight->airline}}</h6>
                         <p class="card-text"><small class="text-muted">Date: {{$flight->date_from}} - {{$flight->date_to}}</small></p>

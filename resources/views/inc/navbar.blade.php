@@ -11,6 +11,7 @@
                 @guest
                 @else
                     <li class="nav-item {{Request::is('tickets') ? 'active' : ''}}"><a class="nav-link" href="/tickets">Tickets</a></li>
+                    <li class="nav-item {{Request::is('search') ? 'active' : ''}}"><a class="nav-link" href="/search">Search</a></li>
                 @endguest
             </div>
             <ul class="navbar-nav ml-auto">

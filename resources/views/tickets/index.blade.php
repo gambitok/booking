@@ -5,13 +5,25 @@
 @section('content')
 
     <div class="container">
-        <div class="jumbotron text-center">
-            <div class="container">
-                <h1>Tickets</h1>
+
+        @if (isset($message))
+            <div class="alert alert-success">
+                <p>{{$message}}</p>
             </div>
-        </div>
+        @endif
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
         <div id="tickets__list" class="tickets__list">
+            @if ($tickets->count()>0)
             @foreach ($tickets as $ticket)
                 <div class="card">
                     <h4 class="tickets__list__title card-title">Air Ticket #{{$ticket->id}}</h4>
@@ -27,11 +39,15 @@
                                 <p class="card-text "><b>PASSENGER:</b> {{$ticket->getTicketUser()}}</p>
                             </div>
                         </div>
-                        <a href="/tickets/{{$ticket->id}}" class="btn btn-primary">Show</a>
-                        <a href="#" class="btn btn-danger text-right">Cancel</a>
+                        <a href="/tickets/{{$ticket->id}}" class="btn btn-outline-primary">Show full information</a>
                     </div>
                 </div>
             @endforeach
+            @else
+                <div class="alert">
+                    You haven't tickets yet. But you can buy them. <a href="/flights">Purchase tickets</a>
+                </div>
+            @endif
         </div>
     </div>
 

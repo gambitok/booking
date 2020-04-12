@@ -21,6 +21,8 @@ class CreateTicketsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('seat_id');
             $table->double('summary');
+            $table->bigInteger('barcode')->unique();
+            $table->bigInteger('card_number');
             $table->timestamps();
         });
     }

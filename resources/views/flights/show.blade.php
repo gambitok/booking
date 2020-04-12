@@ -4,6 +4,17 @@
 
 @section('content')
     <div class="container">
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <div class="jumbotron text-center">
 
             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -26,20 +37,34 @@
                             <hr>
                             <p class="card-text">{{$flight->price}} $</p>
                             <div class="form-check form_seats">
-                                {{--@foreach ($seats as $seat)--}}
-                                    {{--<input class="form-check-input" type="checkbox" value="{{$seat->seat_id}}" id="defaultCheck{{$seat->seat_id}}" {{$seat->seat_status==0 ?: 'disabled'}}>--}}
-                                    {{--<label class="form-check-label" for="defaultCheck{{$seat->seat_id}}">{{$seat->seat_id}}</label>--}}
-                                {{--@endforeach--}}
+                                @foreach ($seats as $seat)
+                                    <input class="form-check-input" type="radio" value="{{$seat['seat_id']}}" id="defaultCheck{{$seat['seat_id']}}" name="seat_id_radio" {{$seat['seat_status']==0 ?: 'disabled'}}>
+                                    <label class="form-check-label" for="defaultCheck{{$seat['seat_id']}}">{{$seat['seat_id']}}</label>
+                                @endforeach
                             </div>
                             <br>
-                            <button class="btn btn-primary">Book</button>
+                            <div class="form_seats">
+                                <p><label class="form-check-label">#</label> - Available</p>
+                                <p><label class="form-check-label form_seats__reserved">#</label> - Booked</p>
+                                <p><label class="form-check-label form_seats__checked">#</label> - Checked</p>
+                            </div>
+                            <br>
+                            <button class="btn btn-primary" onclick="showPaymentForm();">Book</button>
                         </div>
                     </div>
                 </div>
+
                 <div class="tab-pane fade" id="payment" role="tabpanel" aria-labelledby="payment-tab">
                     <div class="card">
-                        <div class="card-body" style="margin: 0 300px;">
-                            <form role="form" method="POST" action="http://booking/flights">
+                        <div class="card-body form_payment">
+
+                            <form method="post" action="{{ route('tickets.store') }}">
+                                @csrf
+
+                                <input type="hidden" id="flight_id" name="flight_id" value="{{$flight->id}}">
+                                <input type="hidden" id="summary" name="summary" value="{{$flight->price}}">
+                                <input type="hidden" id="seat_id" name="seat_id" value="">
+
                                 <div class="form-group">
                                     <label for="username">Full name (on the card)</label>
                                     <div class="input-group">
@@ -77,7 +102,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <input type="submit" class="btn btn-primary">
+                                <input type="submit" class="btn btn-primary" value="Buy">
                             </form>
                         </div>
                     </div>

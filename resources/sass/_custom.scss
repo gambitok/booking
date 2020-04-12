@@ -1,23 +1,50 @@
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1366px!important;
+  }
+}
+
+.flight__banner {
+  background-image: url("../img/banner.jpg");
+  background-size: cover;
+  &__form {
+    background: rgba(9, 33, 64, .75);
+    color: white;
+    padding: 1em;
+  }
+}
+
+.main__banner {
+  background-image: url("../img/banner0.jpg");
+  background-size: cover;
+}
+
+
 .card {
   margin-bottom: 1em;
 }
 
 .tickets__list {
   &__title {
-    background: #71535b;
+    background: #4892d1;
     color: white;
     padding: 1em;
     margin: 0;
   }
   &__body {
-    background: #f8ebd8;
+    background: #ebedea;
   }
 }
 
 .form_seats {
   background: antiquewhite;
   padding: 1em;
-  margin: 0 400px;
+  margin: 0 auto;
+  display: block;
+  max-width: 200px;
+  p {
+    text-align: left;
+  }
   input {
     position: absolute;
     opacity: 0;
@@ -26,15 +53,30 @@
     width: 0;
   }
   label {
+    text-align: center!important;
     width: 30px;
     height: 30px;
     line-height: 30px;
     margin: 5px;
-    background: #3a78c3;
+    background: #76B474;
     border-radius: .25em;
     color: white!important;
     cursor: pointer;
   }
+  &__checked {
+    background: lightcoral!important;
+  }
+  &__reserved {
+    background: #ccc!important;
+    color: #6c757d!important;
+    cursor: not-allowed!important;
+  }
+}
+
+.form_payment {
+  margin: 0 auto;
+  display: block;
+  max-width: 500px;
 }
 
 .form_seats input:checked + label {

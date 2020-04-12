@@ -101,23 +101,6 @@ class DatabaseSeeder extends Seeder
             )
         );
 
-        DB::table('tickets')->insert(
-            array(
-                [
-                    'flight_id' => 1,
-                    'user_id' => 1,
-                    'summary' => 800,
-                    'seat_id' => 3,
-                ],
-                [
-                    'flight_id' => 2,
-                    'user_id' => 1,
-                    'summary' => 500,
-                    'seat_id' => 7,
-                ],
-            )
-        );
-
     }
 }
 

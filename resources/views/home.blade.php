@@ -4,10 +4,10 @@
 
 @section('content')
 <div class="container">
-    <div class="jumbotron text-center">
+    <div class="main__banner jumbotron text-center">
         <div class="container">
-            <h1>Welcome</h1>
-            <p class="lead">Welcome to our Laravel site, <strong>@guest Guest @else {{ Auth::user()->name }} @endguest</strong> !</p>
+            <h1>Booking</h1>
+            <p class="lead">Welcome to our airline booking site, <strong>@guest Guest @else {{ Auth::user()->name }} @endguest</strong> !</p>
         </div>
     </div>
 </div>
