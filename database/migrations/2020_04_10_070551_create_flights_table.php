@@ -17,6 +17,7 @@ class CreateFlightsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('airline');
+            $table->integer('seat_number');
             $table->dateTime('date_from', 0);
             $table->dateTime('date_to', 0);
             $table->double('price', 8, 2);

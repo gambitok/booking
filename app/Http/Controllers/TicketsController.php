@@ -7,11 +7,6 @@ use Illuminate\Http\Request;
 
 class TicketsController extends Controller
 {
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
         //$tickets=Ticket::all();
@@ -20,7 +15,8 @@ class TicketsController extends Controller
         return view('tickets.index', compact('tickets'));
     }
 
-    public function show(Ticket $ticket) {
+    public function show(Ticket $ticket)
+    {
         return view('tickets.show', compact('ticket'));
     }
 

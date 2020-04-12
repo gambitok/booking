@@ -13930,6 +13930,17 @@ a.text-dark:focus {
   margin-bottom: 1em;
 }
 
+.tickets__list__title {
+  background: #71535b;
+  color: white;
+  padding: 1em;
+  margin: 0;
+}
+
+.tickets__list__body {
+  background: #f8ebd8;
+}
+
 .form_seats {
   background: antiquewhite;
   padding: 1em;

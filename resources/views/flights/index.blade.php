@@ -15,6 +15,7 @@
                 </ul>
             </div>
         @endif
+
         <div class="jumbotron text-center">
             <div class="container">
                 <h1>Flights</h1>
@@ -54,6 +55,7 @@
         </div>
 
         <div id="flights_list" class="flights_list">
+            @if ($flights->count()>0)
             @foreach ($flights as $flight)
                 <div class="card">
                     <div class="card-body">
@@ -62,10 +64,16 @@
                         <h6 class="card-subtitle mb-2 text-muted">{{$flight->airline}}</h6>
                         <p class="card-text"><small class="text-muted">Date: {{$flight->date_from}} - {{$flight->date_to}}</small></p>
                         <p class="card-text">{{$flight->price}}$</p>
-                        <a href="/flights/{{$flight->id}}" class="btn btn-outline-primary">Show</a>
+                        <a href="/flights/{{$flight->id}}" class="btn btn-outline-primary">Proceed booking</a>
                     </div>
                 </div>
             @endforeach
+            @else
+                <div class="alert alert-danger">
+                    <h4>Nothing found! Select a different date or cities</h4>
+                    <a href="/flights"><i class="fa fa-caret-left"></i> Back to flights</a>
+                </div>
+            @endif
         </div>
 
     </div>

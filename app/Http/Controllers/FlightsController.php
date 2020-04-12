@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Flight;
 use App\City;
-use App\Seat;
+use App\Ticket;
 use Illuminate\Http\Request;
 
 class FlightsController extends Controller
@@ -17,7 +17,17 @@ class FlightsController extends Controller
     }
 
     public function show(Flight $flight) {
-        $seats = Seat::where('flight_id', $flight->id)->get();
+        //$seats = Seat::where('flight_id', $flight->id)->get();
+        $seats=[];
+        for($i=1;$i<=$flight->seat_number;$i++) {
+            $seat_status = Ticket::where([
+                ['flight_id', '=', $flight->id],
+                ['seat_id', '=', $flight->seat_number]
+            ])->get();
+            $seats[$i]=['seat_id'=>$i, 'seat_status'=>$seat_status];
+        }
+
+        //dd($seats);
         return view('flights.show', compact('flight'), compact('seats'));
     }
 
@@ -27,12 +37,12 @@ class FlightsController extends Controller
         $date_from = $request->input('date_from');
         $date_to = $request->input('date_to');
 
-        $request->validate([
-            'city_id_from'  => ['required'],
-            'city_id_to'    => ['required'],
-            'date_from'     => ['required', 'datetime'],
-            'date_to'       => ['required', 'datetime'],
-        ]);
+//        $request->validate([
+//            'city_id_from'  => ['required'],
+//            'city_id_to'    => ['required'],
+//            'date_from'     => ['required', 'datetime'],
+//            'date_to'       => ['required', 'datetime'],
+//        ]);
 
 //        dump($city_id_from);
 //        dump($city_id_to);
@@ -47,15 +57,6 @@ class FlightsController extends Controller
             ['date_from', '>=', $date_from],
             ['date_from', '<=', $date_to],
         ])->get();
-
-        //AND j.data>='$data_old 00:00:00' AND j.data<='$data_cur 23:59:59'"
-
-        /**
-         * DATE START            DATE END
-         * 2020-04-11 00:00:00 - 2020-04-11 05:00:00
-         * 2020-04-12 00:00:00 - 2020-04-12 05:00:00
-         * 2020-04-10 00:00:00 - 2020-04-10 05:00:00
-         */
 
         $cities=City::all();
 

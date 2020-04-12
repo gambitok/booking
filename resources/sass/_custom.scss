@@ -2,29 +2,39 @@
   margin-bottom: 1em;
 }
 
+.tickets__list {
+  &__title {
+    background: #71535b;
+    color: white;
+    padding: 1em;
+    margin: 0;
+  }
+  &__body {
+    background: #f8ebd8;
+  }
+}
+
 .form_seats {
   background: antiquewhite;
   padding: 1em;
   margin: 0 400px;
-}
-
-.form_seats input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-.form_seats label {
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  margin: 5px;
-  background: #3a78c3;
-  border-radius: .25em;
-  color: white!important;
-  cursor: pointer;
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  label {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin: 5px;
+    background: #3a78c3;
+    border-radius: .25em;
+    color: white!important;
+    cursor: pointer;
+  }
 }
 
 .form_seats input:checked + label {

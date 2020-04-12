@@ -19,6 +19,7 @@ class CreateTicketsTable extends Migration
             $table->foreign('flight_id')->references('id')->on('flights');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('seat_id');
             $table->double('summary');
             $table->timestamps();
         });

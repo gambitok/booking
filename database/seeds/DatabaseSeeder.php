@@ -51,6 +51,7 @@ class DatabaseSeeder extends Seeder
                 [
                     'name' => 'Boeing-737',
                     'airline' => 'France Airlines',
+                    'seat_number' => '24',
                     'date_from' => '2020-04-11 00:00:00',
                     'date_to' => '2020-04-11 05:00:00',
                     'price' => 200,
@@ -60,6 +61,7 @@ class DatabaseSeeder extends Seeder
                 [
                     'name' => 'Boeing 747-400',
                     'airline' => 'Ukraine International Airlines',
+                    'seat_number' => '24',
                     'date_from' => '2020-04-11 01:00:00',
                     'date_to' => '2020-04-11 04:00:00',
                     'price' => 500,
@@ -69,6 +71,7 @@ class DatabaseSeeder extends Seeder
                 [
                     'name' => 'Airbus A320',
                     'airline' => 'American Airlines',
+                    'seat_number' => '24',
                     'date_from' => '2020-04-11 00:00:00',
                     'date_to' => '2020-04-11 12:00:00',
                     'price' => 250,
@@ -78,6 +81,7 @@ class DatabaseSeeder extends Seeder
                 [
                     'name' => 'Airbus A333-300',
                     'airline' => 'Turkish Airlines',
+                    'seat_number' => '24',
                     'date_from' => '2020-05-10 00:00:00',
                     'date_to' => '2020-05-11 01:00:00',
                     'price' => 400,
@@ -87,6 +91,7 @@ class DatabaseSeeder extends Seeder
                 [
                     'name' => 'Boeing 777-200',
                     'airline' => 'United Airlines',
+                    'seat_number' => '24',
                     'date_from' => '2020-06-12 00:00:00',
                     'date_to' => '2020-06-13 04:00:00',
                     'price' => 300,
@@ -96,25 +101,19 @@ class DatabaseSeeder extends Seeder
             )
         );
 
-        for($i=1;$i<=24;$i++) {
-            $mas[$i] = ['flight_id' => 1, 'seat_number' => $i, 'user_id' => 0, 'booked_status' => 0];
-        }
-
-        DB::table('seats')->insert(
-            $mas
-        );
-
         DB::table('tickets')->insert(
             array(
                 [
                     'flight_id' => 1,
                     'user_id' => 1,
                     'summary' => 800,
+                    'seat_id' => 3,
                 ],
                 [
                     'flight_id' => 2,
                     'user_id' => 1,
                     'summary' => 500,
+                    'seat_id' => 7,
                 ],
             )
         );

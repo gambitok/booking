@@ -13,18 +13,9 @@ class Ticket extends Model
         return view('user', compact('user'));
     }
 
-    public function getTicketFlight($code) {
+    public function getTicketFlight($code)
+    {
         $flights = Flight::where('id', $code)->first();
         return view('flights.min', compact('flights'));
-    }
-
-    public function getTicketSeat($code) {
-        $user = auth()->user()->id;
-        $seats = Seat::where([
-            ['flight_id', '=', $code],
-            ['booked_status', '=', 1],
-            ['user_id', '=', $user]
-        ])->get();
-        return view('seats', compact('seats'));
     }
 }

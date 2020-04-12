@@ -11,16 +11,23 @@
             </div>
         </div>
 
-        <div id="tickets_list" class="tickets_list">
+        <div id="tickets__list" class="tickets__list">
             @foreach ($tickets as $ticket)
                 <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Ticket # {{$ticket->id}}</h4>
-                        <p class="card-text">{{$ticket->getTicketFlight($ticket->flight_id)}}</p>
-                        <p class="card-text text-right"><b>Seats:</b> {{$ticket->getTicketSeat($ticket->flight_id)}}</p>
-                        <p class="card-text text-right"><b>Summary:</b> {{$ticket->summary}} $</p>
-                        <p class="text-muted text-right"><b>Purchased by:</b> {{$ticket->getTicketUser()}}</p>
-                        <a href="/tickets/{{$ticket->id}}" class="btn btn-outline-primary">Show</a>
+                    <h4 class="tickets__list__title card-title">Air Ticket #{{$ticket->id}}</h4>
+                    <div class="tickets__list__body card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <span class="card-text"><b>FLIGHT INFO:</b></span>
+                                <div class="card-text">{{$ticket->getTicketFlight($ticket->flight_id)}}</div>
+                            </div>
+                            <div class="col-6">
+                                <p class="card-text"><b>SEAT:</b> {{$ticket->seat_id}}</p>
+                                <p class="card-text"><b>SUMMARY:</b> {{$ticket->summary}} $</p>
+                                <p class="card-text "><b>PASSENGER:</b> {{$ticket->getTicketUser()}}</p>
+                            </div>
+                        </div>
+                        <a href="/tickets/{{$ticket->id}}" class="btn btn-primary">Show</a>
                         <a href="#" class="btn btn-danger text-right">Cancel</a>
                     </div>
                 </div>
