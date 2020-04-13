@@ -20,41 +20,41 @@
             <div class="container">
                 <h1>Flights</h1>
                 <div class="flight__banner__form">
-                <form method="post" action="{{ route('filter') }}">
-                    @csrf
-                    <div class="row">
-                        <div class="col-lg-2 col-12">
-                            <label for="city_id_from">City from</label>
-                            <select class="form-control" name="city_id_from" id="city_id_from" placeholder="City from">
-                                <option value="0">Not selected</option>
-                                @foreach ($cities as $city)
-                                    <option value="{{$city->id}}">{{$city->city_name}}</option>
-                                @endforeach
-                            </select>
+                    <form method="post" action="{{ route('filter') }}">
+                        @csrf
+                        <div class="row">
+                            <div class="col-lg-2 col-12">
+                                <label for="city_id_from">City from</label>
+                                <select class="form-control" name="city_id_from" id="city_id_from" placeholder="City from">
+                                    <option value="0">Not selected</option>
+                                    @foreach ($cities as $city)
+                                        <option value="{{$city->id}}">{{$city->city_name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-lg-2 col-12">
+                                <label for="city_id_to">City to</label>
+                                <select class="form-control" name="city_id_to" id="city_id_to" placeholder="City to">
+                                    <option value="0">Not selected</option>
+                                    @foreach ($cities as $city)
+                                        <option value="{{$city->id}}">{{$city->city_name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-12">
+                                <label for="date_from">Date from</label>
+                                <input class="form-control" type="datetime-local" data-format="dd/MM/yyyy hh:mm:ss" name="date_from" id="date_from" placeholder="Date from">
+                            </div>
+                            <div class="col-lg-3 col-12">
+                                <label for="date_to">Date to</label>
+                                <input class="form-control" type="datetime-local" data-format="dd/MM/yyyy hh:mm:ss" name="date_to" id="date_to" placeholder="Date to">
+                            </div>
+                            <div class="col-lg-2 col-12">
+                                <label for="date_to">&nbsp;</label>
+                                <input type="submit" class="btn btn-primary w-100" value="Search">
+                            </div>
                         </div>
-                        <div class="col-lg-2 col-12">
-                            <label for="city_id_to">City to</label>
-                            <select class="form-control" name="city_id_to" id="city_id_to" placeholder="City to">
-                                <option value="0">Not selected</option>
-                                @foreach ($cities as $city)
-                                    <option value="{{$city->id}}">{{$city->city_name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-lg-3 col-12">
-                            <label for="date_from">Date from</label>
-                            <input class="form-control" type="datetime-local" data-format="dd/MM/yyyy hh:mm:ss" name="date_from" id="date_from" placeholder="Date from">
-                        </div>
-                        <div class="col-lg-3 col-12">
-                            <label for="date_to">Date to</label>
-                            <input class="form-control" type="datetime-local" data-format="dd/MM/yyyy hh:mm:ss" name="date_to" id="date_to" placeholder="Date to">
-                        </div>
-                        <div class="col-lg-2 col-12">
-                            <label for="date_to">&nbsp;</label>
-                            <input type="submit" class="btn btn-primary w-100" value="Search">
-                        </div>
-                    </div>
-                </form>
+                    </form>
                 </div>
             </div>
         </div>

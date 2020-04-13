@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="container">
-        <div class="card tickets__list">
+        <div class="tickets__list card">
             <h4 class="tickets__list__title card-title">Air Ticket #{{$ticket->id}}</h4>
             <div class="tickets__list__body card-body">
                 <div class="row">

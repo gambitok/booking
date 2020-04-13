@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ticket;
+
 use Illuminate\Http\Request;
 
 class TicketsController extends Controller
@@ -64,18 +65,20 @@ class TicketsController extends Controller
         return redirect('tickets')->withErrors('Ticket #'.$id.' canceled!');
     }
 
-//    public function search() {
-//
-//        return view('tickets.search');
-//    }
-//
-//    public function searchPost($id)
-//    {
-//        $ticket = Ticket::where('barcode', $id)->first();
-//
-//        if (isset($ticket->barcode))
-//            return view('tickets.search')->with('message', 'YEP!');
-//        else
-//            return view('tickets.search')->with('message', 'NOPE!');
-//    }
+    public function search() {
+
+        return view('tickets.search');
+    }
+
+    public function barcode(Request $request)
+    {
+        $id = $request->barcode;
+        $ticket = Ticket::where('barcode', $id)->first();
+
+        if (isset($ticket->barcode)) {
+            return view('tickets.search', compact('ticket'));
+        }
+        else
+            return view('tickets.search')->withErrors('Wrong number of ticket!');
+    }
 }

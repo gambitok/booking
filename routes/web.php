@@ -28,9 +28,12 @@ Route::post('tickets', 'TicketsController@store')->name('tickets.store');
 
 Route::post('tickets/{ticket}', 'TicketsController@destroy')->name('destroy');
 
-//Route::get('search', 'TicketsController@search');
-//Route::post('search/{barcode}', 'TicketsController@searchPost')->name('search');
-
 Route::resource('tickets', 'TicketsController');
+
+Route::get('search', 'TicketsController@search');
+
+//Route::post('search/barcode', 'TicketsController@barcode')->name('barcode');
+//Route::get('mail', 'HomeController@mail')->name('mail');
+Route::get('barcode', 'TicketsController@barcode')->name('barcode');
 
 
